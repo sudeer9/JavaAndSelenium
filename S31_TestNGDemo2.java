@@ -9,41 +9,47 @@ import org.testng.annotations.Test;
 
 public class S31_TestNGDemo2 {
 
-		@BeforeClass
-		public void openApp()
-		{
-			Reporter.log("Open the Application", true);
-		}
-		@AfterClass
-		public void closeApp()
-		{
-			Reporter.log("Close the Application", true);
-		}
 		@BeforeMethod
 		public void login()
 		{
-			Reporter.log("Login", true);
+			Reporter.log("Login to app", true);
 		}
+		
 		@AfterMethod
 		public void logout()
 		{
-			Reporter.log("Logout", true);
+			Reporter.log("Logout from app", true);
 		}
-		@Test
+		
+		@BeforeClass
+		public void openApp()
+		{
+			Reporter.log("Open the application",true);
+		}
+		
+		@AfterClass
+		public void closeApp()
+		{
+			Reporter.log("close the application",true);
+		}
+		
+		@Test(priority = 1)
 		public void display()
 		{
 			Reporter.log("Display User", true);
 		}
-		@Test
+		@Test(priority = 3)
 		public void createUser()
 		{
 			Reporter.log("Create User", true);
 		}
-		@Test
+		@Test(priority = 2)
 		public void deleteUser()
 		{
 			Reporter.log("Delete User", true);
 		}
+		
+		
 	}
 
 
